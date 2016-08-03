@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="libs/jquery.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $.ajax({
+                url: "http://rest-service.guides.spring.io/greeting"
+            }).then(function(data) {
+                $('#greeting-id').append(data.id);
+                $('#greeting-content').append(data.content);
+            });
+
+            $.ajax({
+                url: "http://10.115.201.106:8080/hello"
+            }).then(function(data) {
+                $('#greeting2-id').append(data.id);
+                $('#greeting2-content').append(data.content);
+            });
+
+            $.ajax({
+                url: "http://10.115.201.106:8080/addition?value1=50&value2=250"
+            }).then(function(data) {
+                $("#addition").append(data);
+            });
+
+        });
+
+    </script>
+
+    <h1>
+        Data from the Spring.io REST Service
+    </h1>
+
+    <div id="greeting-id">
+
+    </div>
+
+    <div id="greeting-content">
+
+    </div>
+
+    <h1>
+        Data from my personal REST Service
+    </h1>
+
+    <div id="greeting2-id">
+
+    </div>
+
+    <div id="greeting2-content">
+
+    </div>
+
+    <h1>
+        50 + 250 =
+    </h1>
+
+    <div id="addition">
+
+    </div>
+
+
+</body>
+
+</html>
